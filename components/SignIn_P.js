@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Alert, AppRegistry, StyleSheet, View, Image, Pressable, Text, TextInput, TouchableOpacity, Button } from 'react-native';
-import Feather from 'react-native-vector-icons/Feather';
+import { Alert, AppRegistry, KeyboardAvoidingView, StyleSheet, View, Image, Pressable, Text, TextInput, TouchableOpacity, Button } from 'react-native';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 
 
@@ -14,7 +14,7 @@ export default class signin extends Component {
             secureTextEntry: true,
         };
     }
-
+    
 
 
     //code to send/reciev data with php to backend
@@ -55,60 +55,60 @@ export default class signin extends Component {
     //app layout
     render() {
         return (
-
+            
             <View style={styles1.AppStyle}>
-
- 
-
+            
+            
+            
                 <View>
                     <Image source={require('./images/logo.png')}
                         style={styles1.logo}
                     />
                     
                 </View>
-
+                
                 <View>
-                    <Text style={styles1.signin}>
+                    <Text style={styles1.chapter}>
                         Sign In To Your Account
                     </Text>
                 </View>
-
-                <View style={styles1.user}>
-                    <Text style={styles1.username}>
+                <KeyboardAvoidingView behavior= "position">
+                <View>
+                    <Text style={styles1.text}>
                         Email
                     </Text>
                 </View>
-
+                
                 <View style={styles1.TextInView}>
                     <TextInput
                         style={styles1.textInput}
                         onChangeText={email => this.setState({ email })}
                     />
                 </View>
-
+                
                 <View>
-                    <Text style={styles1.username}>
+                    <Text style={styles1.text}>
                         Password
                     </Text>
                 </View>
+                
                 <View style={styles1.TextInView}>
-
+                    
+                
                     <TextInput
                         style={styles1.textInput}
                         secureTextEntry={this.state.secureTextEntry ? true : false}
                         onChangeText={password => this.setState({ password })}
                         
                     />
-                    <Feather name={true ? "eye-off" : "eye"} size={30}
-                        style={{ width: 30, height:30, }}
-                    />
                     <TouchableOpacity
                         onPress={() => this.setState({ secureTextEntry: !this.state.secureTextEntry })}>
-                       
+                        <FontAwesome5 name={this.state.secureTextEntry  ? "lock" : "unlock"} size={27}/>
+                        
                     </TouchableOpacity>
                     
                 </View>
-
+                
 
                 <View style={styles1.ButtonView}>
                     <Pressable
@@ -119,7 +119,7 @@ export default class signin extends Component {
                     </Pressable>
 
                 </View>
-
+                
                 <View style={styles1.ButtonView}>
                     <Pressable
                         style={styles1.Button}
@@ -129,10 +129,12 @@ export default class signin extends Component {
                     </Pressable>
 
                 </View>
+                </KeyboardAvoidingView>
+                
 
-
-
+                
             </View>
+            
         );
     }
 }
@@ -142,50 +144,40 @@ export default class signin extends Component {
 //style section
 const styles1 = StyleSheet.create({
     container: {
-        //flex: 1,
+        flex: 1,
         //justifyContent: 'center',
-        backgroundColor:'#b803ff',
+        //backgroundColor:'#b803ff',
        
     },
 
     logo:
     {
         alignSelf: 'center',
-        width: 250,
-        height: 250,
+        width: 235,
+        height: 235,
     },
-    signin:
+    chapter:
     {
         
-        color: '#ffffff',
-        fontStyle: 'Inter', //czcionka do zmiany
-        paddingBottom: 100,
-        fontSize: 20,
-
-        
-    },
-    username:
-    {
         color: '#ffffff',
         fontStyle: 'lucida grande',
+        paddingBottom: 100,
         fontSize: 18,
-        
-
-
-
+        lineHeight: 21,
+        fontWeight: 'bold',
+    },
+    text: {
+        color: '#ffffff',
+        fontSize: 16,
+        //lineHeight: 21,
     },
     textInput: {
-        
-        top: 10,
+        marginLeft: 10,
+        //top: 10,
         flex: 1,
-        height: 40,
-        marginBottom: 20,
+        height: 30,
         fontSize: 20,
         //borderBottomColor: 'grey',
-        
-
-
-
     },
     buttonContainer: {
         margin: 20
@@ -206,8 +198,6 @@ const styles1 = StyleSheet.create({
         resizeMode: 'stretch',
     },
 
-
-
     stretch2: {
         width: 20,
         height: 160,
@@ -219,27 +209,21 @@ const styles1 = StyleSheet.create({
         height: 40,
         margin: 12,
         borderWidth: 1,
-        padding: 10,
+        padding: 1,
+        marginRight: 5,
     },
 
     TextInView: {
-        borderRadius: 100,
+        paddingRight: 7,
+        borderRadius: 25,
         flexDirection: 'row',
-        marginTop: 6,
-        paddingBottom: 3,
+        marginTop: 5,
         width: '95%',
         padding: 1,
         backgroundColor: 'white',
-
-
     },
 
-    text: {
-        color: 'white',
-        fontSize: 16,
-        lineHeight: 21,
-        fontWeight: 'bold',
-    },
+
 
     AppBar1: {
         //flex: 1,
@@ -284,9 +268,9 @@ const styles1 = StyleSheet.create({
     AppStyle: {
         flex: 1,
         padding: 40,
-
+        //paddingTop: 6,
         paddingBottom: 3,
-        backgroundColor:'#4D426D' //zmienic na obraz
+        backgroundColor:'#4D426D'
     },
 
 
@@ -300,17 +284,15 @@ const styles1 = StyleSheet.create({
         borderRadius: 100,
         //marginTop: 30,
         //marginBottom: 20,
-        padding: 10,
-        borderRadius: 100,
+        //padding: 10,
+        //borderRadius: 100,
         height: 50,
         backgroundColor: '#EFA985',
         color: 'white',
         justifyContent: 'center',
         alignItems: 'center',
         width: 204,
-        //width: 80,
+        
     },
-
- 
 
 })  

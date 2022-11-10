@@ -1,10 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import ChatsPage from './Chats_P';
-import CallsPage from './Calls_P';
-import UsersPage from './Users_P';
-import RelationsPage from './Relations_P';
+import ChatsPage from './screens/ChatsScreen';
+import UsersScreen from './screens/UsersScreen';
+import RelationsScreen from './screens/RelationsScreen';
+import SettingsScreen from './screens/SettingsScreen';
 
 
 const Tab = createBottomTabNavigator();
@@ -26,10 +26,10 @@ const Tabs = () => {
                 }
             }}
         >
-            <Tab.Screen name="ChatsPage" component={ChatsPage}/>
-            <Tab.Screen name="Calls" component={CallsPage}/>
-            <Tab.Screen name="Users" component={UsersPage}/>
-            <Tab.Screen name="Relations" component={RelationsPage}/>
+            <Tab.Screen name="Chats" component={ChatsPage}/>
+            <Tab.Screen name="Users" component={UsersScreen}/>
+            <Tab.Screen name="Relations" component={RelationsScreen}/>
+            <Tab.Screen name="Settings" component={SettingsScreen}/>
 
         </Tab.Navigator>
     );

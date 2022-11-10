@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Alert, AppRegistry, StyleSheet, View, Image, Pressable, Linking, Text, TextInput, TouchableOpacity, Button } from 'react-native';
-import Feather from 'react-native-vector-icons/Feather';
+import { Alert, AppRegistry, StyleSheet, View, Image, Pressable, Linking, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, Button } from 'react-native';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 
 export default class signup extends Component {
     constructor(props) {
@@ -71,54 +73,96 @@ export default class signup extends Component {
     render() {
         return (
             <View style={styles1.AppStyle}>
+
+                <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
+                <View>
+                    <Image source={require('./images/logo.png')}
+                        style={styles1.logo}
+                    />
+                </View>
+                
+                <View>
+                <Text style={styles1.chapter}>
+                    Create a Account
+                </Text>
+                </View>
+                
+                <View>
+                    <Text style={styles1.text}>
+                        Name
+                    </Text>
+                </View>
+              
                 <View style={styles1.TextInView}>
+                    
                     <TextInput
-                        placeholder="Enter First Nameee"
+                        //placeholder="Enter Name"
                         style={styles1.textInput}
                         onChangeText={first_name => this.setState({ first_name })}
                     />
                 </View>
-
+                <View>
+                    <Text style={styles1.text}>
+                        Last Name
+                    </Text>
+                </View>
                 <View style={styles1.TextInView}>
                     <TextInput
-                        placeholder="Enter Last Name"
+                       // placeholder="Enter Last Name"
                         style={styles1.textInput}
                         onChangeText={last_name => this.setState({ last_name })}
                     />
                 </View>
-
+                <View>
+                    <Text style={styles1.text}>
+                        Email
+                    </Text>
+                </View>
                 <View style={styles1.TextInView}>
                     <TextInput
-                        placeholder="Enter Email"
+                        //placeholder="Enter Email"
                         style={styles1.textInput}
                         onChangeText={email => this.setState({ email })}
                     />
                 </View>
-
+                <View>
+                    <Text style={styles1.text}>
+                        Passowrd
+                    </Text>
+                </View>
                 <View style={styles1.TextInView}>
                     <TextInput
-                        placeholder="Enter Password"
+                       // placeholder="Enter Password"
                         secureTextEntry={this.state.secureTextEntry ? true : false}
                         style={styles1.textInput}
                         onChangeText={password => this.setState({ password })}
                     />
                     <TouchableOpacity
                         onPress={() => this.setState({ secureTextEntry: !this.state.secureTextEntry })}>
-                        <Feather name={true ? "eye-off" : "eye"} size={30} />
+                        <FontAwesome5 name={this.state.secureTextEntry  ? "lock" : "unlock"} size={27}/>
                     </TouchableOpacity>
+                    
                 </View>
-
+                <View>
+                    <Text style={styles1.text}>
+                        Password Again
+                    </Text>
+                </View>
                 <View style={styles1.TextInView}>
                     <TextInput
-                        placeholder="Confirm Password"
+                        //placeholder="Confirm Password"
                         style={styles1.textInput}
                         onChangeText={confirmpassword => this.setState({ confirmpassword })}
                         secureTextEntry={this.state.secureTextEntry_ConfirmPass ? true : false}
                     />
                     <TouchableOpacity
                         onPress={() => this.setState({ secureTextEntry_ConfirmPass: !this.state.secureTextEntry_ConfirmPass })}>
-                        <Feather name={true ? "eye-off" : "eye"} size={30} />
+                        <FontAwesome5 name={this.state.secureTextEntry_ConfirmPass  ? "lock" : "unlock"} size={27}/>
                     </TouchableOpacity>
+
+                    
+
+                    
                 </View>
 
 
@@ -127,10 +171,12 @@ export default class signup extends Component {
                         style={styles1.Button}
                         onPress={() => { this.RegDataInDB() }}
                     >
-                        <Text style={styles1.text}>Register</Text>
+                        <Text style={styles1.text}>Sign Up</Text>
                     </Pressable>
                 </View>
+                </KeyboardAwareScrollView>
             </View>
+            
         );
     }
 }
@@ -140,8 +186,52 @@ const styles1 = StyleSheet.create({
     container: {
          flex: 1,
         justifyContent: 'center',
+        
 
     },
+
+    logo:
+    {
+        alignSelf: 'center',
+        width: 200,
+        height: 200,
+    },
+    chapter:
+    {
+        
+        color: '#ffffff',
+        fontStyle: 'lucida grande',
+        //paddingLeft: 40,
+        paddingBottom: 50,
+        fontSize: 18,
+        lineHeight: 21,
+        fontWeight: 'bold',
+    },
+    text: 
+    {
+        color: '#ffffff',
+        fontSize: 16,
+        //lineHeight: 21,
+        //fontWeight: 'bold',
+    },
+    TextInView: {
+        paddingRight: 7,
+        borderRadius: 25,
+        flexDirection: 'row',
+        marginTop: 5,
+        width: '95%',
+        padding: 1,
+        backgroundColor: 'white',
+    },
+    textInput: {
+        marginLeft: 10,
+        //top: 10,
+        flex: 1,
+        height: 30,
+        fontSize: 20,
+        //borderBottomColor: 'grey',
+    },
+
 
     buttonContainer: {
         margin: 20
@@ -207,21 +297,8 @@ const styles1 = StyleSheet.create({
         height: 20,
     },
 
-    text: {
-        color: 'white',
-        fontSize: 16,
-        lineHeight: 21,
-        fontWeight: 'bold',
-    },
 
-    textInput: {
-        flex: 1,
-        marginBottom: 20,
-        borderBottomColor: 'grey',
-        borderBottomWidth: 1,
-        height: 30,
-        fontSize: 20,
-    },
+
 
     AppBar3: {
         //flex: 1,
@@ -244,34 +321,34 @@ const styles1 = StyleSheet.create({
 
     AppStyle: {
         flex: 1,
-        padding: 20,
-        marginTop: 6,
-        paddingBottom: 3,
-        width: '100%'
+        padding: 40,
+        //marginTop: 6,
+        //paddingBottom: 3,
+        //width: '100%',
+        backgroundColor:'#4D426D' 
 
     },
 
-    TextInView: {
-        flexDirection: 'row',
-        marginTop: 6,
-        paddingBottom: 3,
-        width: '95%',
-        padding: 2,
-    },
+
 
     ButtonView: {
-        marginTop: 48,
+        marginTop: 10,
         alignItems: 'center'
     },
 
     Button: {
+        borderRadius: 100,
+        //marginTop: 30,
+        //marginBottom: 20,
+        //padding: 10,
+        //borderRadius: 100,
+        height: 50,
+        backgroundColor: '#EFA985',
         color: 'white',
-        backgroundColor: 'green',
-        height: 35,
         justifyContent: 'center',
         alignItems: 'center',
-        width: '80%',
-        marginTop: -5
+        width: 204,
+        
     },
 
 })  
