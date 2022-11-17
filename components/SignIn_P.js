@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Alert, AppRegistry, KeyboardAvoidingView, StyleSheet, View, Image, Pressable, Text, TextInput, TouchableOpacity, Button } from 'react-native';
+import { Alert, AppRegistry, StyleSheet, View, Image, Pressable, Text, TextInput, TouchableOpacity, Button } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 
-
-export default class signin extends Component {
+export default class Signin extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -57,7 +57,7 @@ export default class signin extends Component {
         return (
             
             <View style={styles1.AppStyle}>
-            
+            <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
             
             
                 <View>
@@ -72,7 +72,6 @@ export default class signin extends Component {
                         Sign In To Your Account
                     </Text>
                 </View>
-                <KeyboardAvoidingView behavior= "position">
                 <View>
                     <Text style={styles1.text}>
                         Email
@@ -85,7 +84,8 @@ export default class signin extends Component {
                         onChangeText={email => this.setState({ email })}
                     />
                 </View>
-                
+                <View style={styles1.line}/>
+
                 <View>
                     <Text style={styles1.text}>
                         Password
@@ -104,7 +104,6 @@ export default class signin extends Component {
                     <TouchableOpacity
                         onPress={() => this.setState({ secureTextEntry: !this.state.secureTextEntry })}>
                         <FontAwesome5 name={this.state.secureTextEntry  ? "lock" : "unlock"} size={27}/>
-                        
                     </TouchableOpacity>
                     
                 </View>
@@ -129,7 +128,7 @@ export default class signin extends Component {
                     </Pressable>
 
                 </View>
-                </KeyboardAvoidingView>
+                </KeyboardAwareScrollView>
                 
 
                 
@@ -165,11 +164,13 @@ const styles1 = StyleSheet.create({
         fontSize: 18,
         lineHeight: 21,
         fontWeight: 'bold',
+        
     },
     text: {
         color: '#ffffff',
         fontSize: 16,
         //lineHeight: 21,
+        padding: 10,
     },
     textInput: {
         marginLeft: 10,
@@ -178,7 +179,9 @@ const styles1 = StyleSheet.create({
         height: 30,
         fontSize: 20,
         //borderBottomColor: 'grey',
+        
     },
+
     buttonContainer: {
         margin: 20
     },
@@ -221,6 +224,7 @@ const styles1 = StyleSheet.create({
         width: '95%',
         padding: 1,
         backgroundColor: 'white',
+        
     },
 
 
@@ -250,6 +254,7 @@ const styles1 = StyleSheet.create({
         //backgroundColor: 'pink',
         width: 300,
         height: 20,
+
     },
 
     AppBar3: {
@@ -267,7 +272,7 @@ const styles1 = StyleSheet.create({
 
     AppStyle: {
         flex: 1,
-        padding: 40,
+        padding: 20,
         //paddingTop: 6,
         paddingBottom: 3,
         backgroundColor:'#4D426D'

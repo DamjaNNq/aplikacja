@@ -6,15 +6,18 @@ import BottomTab from './BottomTab';
 export default function Home(){
   return (
 
-        <BottomTab/>
+        <BottomTab
+        style={styles1.container}
+        />
   );
 }
 
-const styles = StyleSheet.create({
+const styles1 = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#ffffff",
-        alignItems: "center",
-        justifyContent: "center",
+        padding: 40,
+        //paddingTop: 6,
+        paddingBottom: 3,
+        backgroundColor:'#4D426D'
     },
 });

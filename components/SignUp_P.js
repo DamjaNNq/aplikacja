@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Alert, AppRegistry, StyleSheet, View, Image, Pressable, Linking, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, Button } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import signin from './SignIn_P';
 
 
-export default class signup extends Component {
+export default class Signup extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,7 +17,8 @@ export default class signup extends Component {
             check_textInputChange: false,
             secureTextEntry: true,
             secureTextEntry: true,
-            secureTextEntry_ConfirmPass: true
+            secureTextEntry_ConfirmPass: true,
+            
         };
     }
 
@@ -81,10 +83,22 @@ export default class signup extends Component {
                     />
                 </View>
                 
-                <View>
+                <View paddingBottom={50}>
+                
+                
+                <TouchableOpacity 
+                        onPress={() => { this.props.navigation.navigate("SignIn") }}>
+                            <FontAwesome5 
+                        name="arrow-left"
+                        size={25}
+                        color="white"
+                       
+                        />
+                        </TouchableOpacity>
                 <Text style={styles1.chapter}>
                     Create a Account
                 </Text>
+                
                 </View>
                 
                 <View>
@@ -201,11 +215,16 @@ const styles1 = StyleSheet.create({
         
         color: '#ffffff',
         fontStyle: 'lucida grande',
-        //paddingLeft: 40,
-        paddingBottom: 50,
+        paddingLeft: 30,
+        
         fontSize: 18,
         lineHeight: 21,
         fontWeight: 'bold',
+        position: 'absolute',
+        top: 3,
+        
+
+        
     },
     text: 
     {
@@ -213,6 +232,7 @@ const styles1 = StyleSheet.create({
         fontSize: 16,
         //lineHeight: 21,
         //fontWeight: 'bold',
+        padding: 10,
     },
     TextInView: {
         paddingRight: 7,
@@ -321,7 +341,7 @@ const styles1 = StyleSheet.create({
 
     AppStyle: {
         flex: 1,
-        padding: 40,
+        padding: 20,
         //marginTop: 6,
         //paddingBottom: 3,
         //width: '100%',

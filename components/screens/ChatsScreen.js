@@ -5,7 +5,7 @@ import { StyleSheet, View, Text } from 'react-native';
 
 export default function ChatsScreen(){
   return (
-    <View style={styles1.Back}>
+    <View style={styles1.AppStyle}>
       <Text>
        Chats
       </Text>
@@ -15,10 +15,8 @@ export default function ChatsScreen(){
 }
 
 const styles1 = StyleSheet.create({
-  Back: {
-    backgroundColor: '#EFA985',
+  AppStyle: {
 
-    
 },
 
 })  
