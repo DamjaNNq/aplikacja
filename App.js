@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Home from './components/Home_P';
 import SignIn from './components/SignIn_P';
 import SignUp from './components/SignUp_P';
-
+import cwel from flex;
 import BottomTab from './components/BottomTab';
 
 
@@ -23,8 +23,10 @@ export default function App() {
     );
 }
 
-/*            <Stack.Screen name="SignIn" component={SignIn} />
-            <Stack.Screen name="SignUp" component={SignUp} />*/
+//            <Stack.Screen name="SignIn" component={SignIn} />
+//<Stack.Screen name="SignUp" component={SignUp} />
+
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,

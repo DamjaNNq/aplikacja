@@ -32,15 +32,17 @@ style={styles1.TabBar}
 },
 */
 
-//screenOptions={{ headerShown: false}}
 const BottomTab = ()  => {
   return (
 
         <Tab.Navigator 
         screenOptions={{
           headerStyle: {
+            
             backgroundColor: '#4D426D',
+            elevation: 0,
           },
+          headerTintColor: '#ffffff',
           tabBarShowLabel: false,
           tabBarStyle: {
             elevation: 0,
@@ -48,6 +50,7 @@ const BottomTab = ()  => {
             backgroundColor: '#4D426D',
             headerBackground: '#4D426D',
             height: 60,
+
           }
       }}
         >
@@ -100,7 +103,6 @@ const BottomTab = ()  => {
                 resizeMode='contain'
                 style={{
                   color: focused ? '#EFA985' : '#ffffff',
-
                 }}/>
                 
               </View>
@@ -114,6 +116,11 @@ const BottomTab = ()  => {
 export default BottomTab;
 
 const styles1 = StyleSheet.create({
-
+  container: {
+    flex: 1,
+  },
+  Tab:{
+    color:'white',
+  }
 
   });
