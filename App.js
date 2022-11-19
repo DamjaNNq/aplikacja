@@ -5,8 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import Home from './components/Home_P';
 import SignIn from './components/SignIn_P';
 import SignUp from './components/SignUp_P';
-import cwel from flex;
+
 import BottomTab from './components/BottomTab';
+import AccountScreen from './components/screens/AccountScreen';
 
 
 
@@ -17,14 +18,21 @@ export default function App() {
             <Stack.Navigator screenOptions={{ headerShown: false}}>
 
             <Stack.Screen name="HomePage" component={Home} />
-            </Stack.Navigator>
+            <Stack.Screen name="SignIn" component={SignIn} />
+            <Stack.Screen name="SignUp" component={SignUp} />
+
+            
+            
+            </Stack.Navigator>        
         </NavigationContainer>
 
+          
+// 
     );
 }
 
-//            <Stack.Screen name="SignIn" component={SignIn} />
-//<Stack.Screen name="SignUp" component={SignUp} />
+
+//            <Stack.Screen name="AccountScreen" component={AccountScreen} options={{headerShown: true}}/>
 
 
 const styles = StyleSheet.create({

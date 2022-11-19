@@ -1,24 +1,17 @@
 import  React from 'react';
 import { StyleSheet, View, Text, Button, Image,TouchableOpacity, Pressable } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+//import { useNavigation } from '@react-navigation/native';
 
 import { createStackNavigator } from '@react-navigation/stack';
+
+import SignIn from '../SignIn_P';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Feather  from 'react-native-vector-icons/Feather'
-import AccountScreen from './AccountScreen';
-import Signin from '../SignIn_P';
+//import AccountScreen from './AccountScreen';
 
 
 
-function SettingsScreen() {
-  const Stack = createStackNavigator();
-  const navigation = useNavigation();
-  
-  <Stack.Navigator>
-  <Stack.Screen name="AccountScreen" component={AccountScreen}/>
-
-
-</Stack.Navigator>
+function AccountScreen({ navigation }) {
   return (
     <View style = {styles1.AppStyle} > 
 
@@ -30,43 +23,40 @@ function SettingsScreen() {
         <Text style={styles1.name}>
           Wiesław Paleta
         </Text>
-        <View style = {styles1.row}>
-        <MaterialCommunityIcons
+        <Pressable
+      title="Go somewhere"
+      onPress={() => {
+       navigation.navigate('AccountScreen', { screen: 'AccountScreen' });
+      }}
+    >
+            <MaterialCommunityIcons
                         name="account"
-                        size={35}
+                        size={30}
                         color="#EFA985"
                        
                         />
-        <TouchableOpacity
-      onPress={() => {
-        this.props.navigation.navigate('AccountSettings')}}
-    >
-
     <Text style = {styles1.text}>
       Account
     </Text>
-
-    
-    </TouchableOpacity>
-    </View>
-
-    <View style = {styles1.row}>
+    </Pressable>
     <Feather
                         name="power"
-                        size={35}
+                        size={30}
                         color="#EFA985"
-                        
+                       
                         />
     <TouchableOpacity
+      title="Go somewhere"
       onPress={() => {
-        navigation.navigate(Signin)}}
+        navigation.navigate('SignIn', { screen: 'SignIn' });
+      }}
     >
-
+            
     <Text style = {styles1.text}>
       Log Out
     </Text>
     </TouchableOpacity>
-    </View>
+
 
       </View>
       
@@ -75,7 +65,7 @@ function SettingsScreen() {
   );
 }
 
-export default SettingsScreen
+export default AccountScreen
 
 const styles1 = StyleSheet.create({
   container: {
@@ -84,12 +74,7 @@ const styles1 = StyleSheet.create({
    backgroundColor: 'red',
 
   },
-  row:{
-    flexDirection: 'row',
-    paddingBottom: 40,
-    paddingLeft: 10,
-    
-  },
+
   profil: {
     borderRadius: 100,
     position: 'relative',
@@ -100,24 +85,20 @@ const styles1 = StyleSheet.create({
   },
 
   name:{
-   // flexDirection: 'row',
     textAlign: 'center',
     fontWeight: '1',
     color: "white",
     fontSize: 25,
     //lineHeight: 21,
     padding: 10,
-    //justifyContent: 'center'
-    paddingBottom: 100,
   },
 
   text: {
-   // position: 'absolute',
+    position: 'absolute',
     color: "white",
     fontSize: 20,
     //lineHeight: 21,
-    marginLeft:20,
-    top:4,
+    marginLeft: 45,
   },
 
   AppStyle: {
