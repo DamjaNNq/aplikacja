@@ -104,7 +104,7 @@ const BottomTab = ()  => {
                 resizeMode='contain'
                 style={{
                   color: focused ? '#EFA985' : '#ffffff',
-                
+
                 }}/>
                 
               </View>

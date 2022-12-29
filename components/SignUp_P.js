@@ -94,7 +94,7 @@ export default class Signup extends Component {
                         color="white"
                        
                         />
-                        </TouchableOpacity>
+                </TouchableOpacity>
                 <Text style={styles1.chapter}>
                     Create a Account
                 </Text>

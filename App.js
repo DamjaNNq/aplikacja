@@ -26,6 +26,8 @@ export default function App() {
             </Stack.Navigator>
         </NavigationContainer>
 
+          
+// 
     );
 }
 //<Stack.Screen name="StoryImage" component={StoryImage} />

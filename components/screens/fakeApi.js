@@ -2,8 +2,8 @@ import { NavigationContainerRefContext, useScrollToTop } from "@react-navigation
 import { TouchableOpacity, } from "react-native-gesture-handler";
 import { ImageBackground, Text, View, } from "react-native";
 import { StackNavigator } from "react-navigation";
-import { NativeStackScreenProps, createNativeStackNavigator, navigation  } from '@react-navigation/native-stack';
-import { useNavigation } from '@react-navigation/native';
+//import { NativeStackScreenProps, createNativeStackNavigator, navigation  } from '@react-navigation/native-stack';
+//import { useNavigation } from '@react-navigation/native';
 import RelationsScreen, { onchangescreen } from "./RelationsScreen";
 import Home from "./UsersScreen";
 import { Component } from "react";
