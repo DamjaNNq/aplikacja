@@ -8,6 +8,7 @@ import Feather  from 'react-native-vector-icons/Feather'
 import AccountScreen from './AccountScreen';
 import Signin from '../SignIn_P';
 
+//zmiana ustawien na profilu
 
 
 function SettingsScreen() {
@@ -15,7 +16,7 @@ function SettingsScreen() {
   const navigation = useNavigation();
   
   <Stack.Navigator>
-  <Stack.Screen name="SettingScreen" component={SettingsScreen}/>
+  <Stack.Screen name="AccountScreen" component={AccountScreen}/>
 
 
 </Stack.Navigator>
@@ -28,27 +29,9 @@ function SettingsScreen() {
                           style={styles1.profil}
         />
         <Text style={styles1.name}>
-          Wiesław Paleta
+          
         </Text>
-        <View style = {styles1.row}>
-        <MaterialCommunityIcons
-                        name="account"
-                        size={35}
-                        color="#EFA985"
-                       
-                        />
-        <TouchableOpacity
-      onPress={() => {
-        navigation.navigate('AccountScreen')}}
-    >
-
-    <Text style = {styles1.text}>
-      Account
-    </Text>
-
-    
-    </TouchableOpacity>
-    </View>
+       
 
     <View style = {styles1.row}>
     <Feather

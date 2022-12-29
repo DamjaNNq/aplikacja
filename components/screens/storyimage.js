@@ -3,19 +3,15 @@ import { StyleSheet, View, Text} from 'react-native';
 //import {NativeBaseProvider, Box} from 'native-base';
 
 
-const ChatsScreen = () => { 
+const storyimage = () => { 
   return (
     <View style = {styles1.AppStyle}>
-
+      <Text>Cwel123</Text>
     </View>
   );
 }
-/*         <NativeBaseProvider>
-      <Box flex={1} bg="#fff" alignItems="center" justifyContent="center">
-        <Text>Open up App.js to start working on your app!</Text>
-      </Box>
-    </NativeBaseProvider>*/
-export default ChatsScreen
+
+export default storyimage
 
 const styles1 = StyleSheet.create({
   AppStyle:{
